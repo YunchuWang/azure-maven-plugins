@@ -73,7 +73,8 @@ public class Utils {
             logger.info(String.format("Executing command %s", command));
             final Process p;
             if (Utils.isWindows()){
-                p = Runtime.getRuntime().exec("cmd.exe /C" + command);
+                String[] cmdArray = {"cmd.exe", "/C", command};
+                p = Runtime.getRuntime().exec(cmdArray);
             } else {
                 p = Runtime.getRuntime().exec(command);
             }
